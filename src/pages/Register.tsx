@@ -5,6 +5,9 @@ import { registerUser, RegisterErrors } from '../firebase/services/auth/register
 import { VStack } from '@chakra-ui/react';
 
 const Register: React.FC = () => {
+
+  //TODO Validar repetición de contraseña
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cPassword, setCPassword] = useState('');
@@ -37,7 +40,6 @@ const Register: React.FC = () => {
 
 
   async function handleClick() {
-    console.log({ email, password });
     const { success, error } = await registerUser({ email, password })
 
     if (success) {

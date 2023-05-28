@@ -7,7 +7,7 @@ type RegisterProps = {
     password: string;
 }
 
-//TODO: exportar a fichero externo
+//TODO: implementar resto de posibles excepciones
 export enum RegisterErrors {
     EMAIL_ALREADY_IN_USE = "auth/email-already-in-use",
 }

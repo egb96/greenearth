@@ -2,7 +2,7 @@ import { UserCredential, signInWithEmailAndPassword } from "firebase/auth";
 import { appAuth } from "../../firebase";
 import { FirebaseError } from "firebase/app";
 
-type LogInProps = {
+export type LogInProps = {
     email: string;
     password: string;
 }
@@ -17,8 +17,7 @@ export enum LoginErrors {
 
 type LoginResult = {
     success: boolean;
-    //TODO cambiar nombre para evitar confusion con Excepción
-    error?: string;
+    textoError?: string;
 }
 
 export const loginUser = async ({ email, password }: LogInProps): Promise<LoginResult> => {
@@ -30,22 +29,22 @@ export const loginUser = async ({ email, password }: LogInProps): Promise<LoginR
                 case LoginErrors.INVALID_EMAIL:
                     return {
                         success: false,
-                        error: "Email incorrecto"
+                        textoError: "Email incorrecto"
                     }
                 case LoginErrors.USER_DISABLED:
                     return {
                         success: false,
-                        error: "Usuario deshabilitado"
+                        textoError: "Usuario deshabilitado"
                     }
                 case LoginErrors.NOT_FOUND:
                     return {
                         success: false,
-                        error: "Usuario no encontrado"
+                        textoError: "Usuario no encontrado"
                     }
                 case LoginErrors.WRONG_PASSWORD:
                     return {
                         success: false,
-                        error: "Contraseña incorrecta"
+                        textoError: "Contraseña incorrecta"
                     }
             }
         }

@@ -1,5 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton, IonCard, IonCardContent } from '@ionic/react';
-import { HStack, VStack, Box, Textarea, Button } from '@chakra-ui/react';
+import { IonContent, IonImg, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton, IonCard, IonCardContent, IonButtons, IonBackButton, IonIcon } from '@ionic/react';
 import { isPlatform } from '@ionic/react';
 
 // import { Preferences } from '@capacitor/preferences';
@@ -7,8 +6,16 @@ import { isPlatform } from '@ionic/react';
 // import usePhotoGallery from '../hooks/usePhotoGallery';
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { useState } from "react";
-
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, EffectCoverflow, Pagination, EffectCreative } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "./styles.css";
+// import required modules
+// import "@ionic/react/css/ionic-swiper.css";
+import "swiper/css/effect-fade";
+import "swiper/css/effect-creative";
 
 // const { takePhoto } = usePhotoGallery()
 
@@ -40,24 +47,43 @@ const CreateIncidences: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle class='ion-text-center'>Crear Incidencias</IonTitle>
+                    <IonButtons slot="start">
+                        <IonBackButton defaultHref='/'></IonBackButton>
+                    </IonButtons>
+                    <IonTitle >Crear Incidencias</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent >
-                <VStack w={"full"} h='40px' color={"blackAlpha.800"} alignItems={'center'} paddingX={10}>
-                    <HStack w={"full"} justifyContent={'center'}>
-                        <Button bg={'red.500'} onClick={takePicture}>
-                            Cámara
-                        </Button>
-                        <Button bg={'blue.500'}>
-                            a
-                        </Button>
-                    </HStack>
-                    <Textarea placeholder='Here is a sample placeholder' />
-                    <Button colorScheme='teal' size="lg" paddingY={'8'}>
-                        Enviar Incidencia
-                    </Button>
-                </VStack>
+            <IonContent>
+
+
+                <IonButton onClick={takePicture}>
+                    Cámara
+                </IonButton>
+                <Swiper
+                    grabCursor={true}
+                    effect={"creative"}
+                    creativeEffect={{
+                        prev: {
+                            shadow: true,
+                            translate: [0, 0, -400],
+                        },
+                        next: {
+                            translate: ["100%", 0, 0],
+                        },
+                    }}
+                    modules={[EffectCreative]}
+                    className="mySwiper"
+                >
+                    {imgSrcs.map((src) => (
+                        <SwiperSlide key={src}>
+                            <IonImg src={src} alt="Aqui irá una foto" />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                <IonButton>
+                    a
+                </IonButton>
+
             </IonContent>
         </IonPage >
     );

@@ -5,7 +5,6 @@ import LogIn from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import CreateIncidences from './pages/CreateIncidences';
-import { ChakraProvider } from '@chakra-ui/react'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -30,26 +29,25 @@ import { ROUTES } from './utils/routes';
 setupIonicReact();
 
 const App: React.FC = () => (
-  <ChakraProvider>
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path={ROUTES.HOME}>
-            <Home />
-          </Route>
-          <Route exact path={ROUTES.LOGIN}>
-            <LogIn />
-          </Route>
-          <Route exact path={ROUTES.REGISTER}>
-            <Register />
-          </Route>
-          <Route exact path={ROUTES.CREATE_INCIDENCES}>
-            <CreateIncidences />
-          </Route>
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
-  </ChakraProvider>
+  <IonApp>
+    <IonReactRouter>
+      <IonRouterOutlet>
+        <Route exact path={ROUTES.HOME}>
+          <Home />
+        </Route>
+        <Route exact path={ROUTES.LOGIN}>
+          <LogIn />
+        </Route>
+        <Route exact path={ROUTES.REGISTER}>
+          <Register />
+        </Route>
+        <Route exact path={ROUTES.CREATE_INCIDENCES}>
+          <CreateIncidences />
+        </Route>
+      </IonRouterOutlet>
+    </IonReactRouter>
+  </IonApp>
+
 );
 
 export default App;

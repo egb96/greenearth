@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
 import LoginForm from '../components/LoginForm';
 
 const Login: React.FC = () => {
@@ -6,7 +6,10 @@ const Login: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle className='ion-text-center'>Iniciar sesión</IonTitle>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref='/'></IonBackButton>
+          </IonButtons>
+          <IonTitle >Iniciar sesión</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent >

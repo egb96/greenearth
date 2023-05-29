@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
 import RegisterForm from '../components/RegisterForm';
 
 const Register: React.FC = () => {
@@ -6,7 +6,10 @@ const Register: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle class='ion-text-center'>Registrese</IonTitle>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref='/'></IonBackButton>
+          </IonButtons>
+          <IonTitle >Registrese</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

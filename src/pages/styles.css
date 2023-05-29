@@ -1,0 +1,15 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-img {
+    min-width: 400px;
+    height: 400px;
+}
+
+ion-button {
+    min-width: 200px;
+}

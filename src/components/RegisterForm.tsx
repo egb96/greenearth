@@ -47,9 +47,6 @@ const RegisterForm: React.FC = () => {
                 {errors.checkPassword?.type === 'required' && <IonText color="danger">Repita la contraseña</IonText>}
             </IonItem>
             <IonButton className="ion-margin-top" type="submit" expand="block">Registrarse</IonButton>
-            <IonItem>
-                <p>¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link></p>
-            </IonItem>
         </form>
     );
 };

@@ -1,4 +1,5 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { Link } from 'react-router-dom';
 import RegisterForm from '../components/RegisterForm';
 
 const Register: React.FC = () => {
@@ -14,6 +15,7 @@ const Register: React.FC = () => {
       </IonHeader>
       <IonContent>
         <RegisterForm />
+        <p>¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link></p>
       </IonContent>
     </IonPage>
   );

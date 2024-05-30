@@ -1,6 +1,7 @@
-import { UserCredential, signInWithEmailAndPassword } from "firebase/auth";
+import { UserCredential, setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from "firebase/auth";
 import { appAuth } from "../../firebase";
 import { FirebaseError } from "firebase/app";
+
 
 export type LogInProps = {
     email: string;
@@ -21,6 +22,7 @@ type LoginResult = {
 }
 
 export const loginUser = async ({ email, password }: LogInProps): Promise<LoginResult> => {
+    setPersistence(appAuth, browserSessionPersistence);
     try {
         await signInWithEmailAndPassword(appAuth, email, password);
     } catch (error) {
@@ -49,7 +51,6 @@ export const loginUser = async ({ email, password }: LogInProps): Promise<LoginR
             }
         }
     }
-
     return {
         success: true
     }

@@ -5,6 +5,7 @@ import LogIn from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import CreateIncidences from './pages/CreateIncidences';
+import UserHome from './pages/UserHome';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -43,6 +44,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path={ROUTES.CREATE_INCIDENCES}>
           <CreateIncidences />
+        </Route>
+        <Route exact path={ROUTES.USER_HOME}>
+          <UserHome />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

@@ -15,8 +15,8 @@ export type ReturnIncidencia = {
     id: string
     email: string | null | undefined
     descripcion: string
-    fecha: Timestamp
+    fecha: string
     resuelto: boolean
-    ubicacion: Coordenadas
+    ubicacion: string
     imagenes: string
 }
